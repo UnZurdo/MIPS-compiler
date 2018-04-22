@@ -1,1 +1,1 @@
-“web: mips-compiler”
+“web: app”
