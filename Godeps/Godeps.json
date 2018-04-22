@@ -1,6 +1,6 @@
 {
 	"ImportPath": "compiler",
-	"GoVersion": "go1.6",
+	"GoVersion": "go1.6.2",
 	"GodepVersion": "v80",
 	"Deps": []
 }
