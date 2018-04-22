@@ -1,0 +1,14 @@
+
+
+.form-group {
+    padding: 3%;
+    padding-right: 40%;
+    background-color: lightblue;
+}
+body {
+    background-color: lightblue;
+}
+
+.container {
+    display: flex; /* or inline-flex */
+}
