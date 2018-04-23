@@ -128,7 +128,7 @@ sr3 = cero + sr3
 }
 
 shamt := "00000000000"
-bin = bin + sr3 + sr1 + shamt + sr3
+bin = bin + sr3 + sr1 + shamt + sr2
 
 fmt.Println(bin)
 return nil, bin
