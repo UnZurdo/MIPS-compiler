@@ -1,12 +1,16 @@
 package main
 
 import (
+	"bufio"
+
+	"io"
+
 	"strconv"
 )
 import (
-	"bufio"
-	"io"
+
 	"strings"
+	"fmt"
 )
 
 type frame struct {
@@ -985,6 +989,24 @@ var dfas = []dfa{
 		},
 	}, []int{ /* Start-of-input transitions */ -1, -1}, []int{ /* End-of-input transitions */ -1, -1}, nil},
 
+	// \n
+	{[]bool{false, true}, []func(rune) int{ // Transitions
+		func(r rune) int {
+			switch r {
+			case 10:
+				return 1
+			}
+			return -1
+		},
+		func(r rune) int {
+			switch r {
+			case 10:
+				return -1
+			}
+			return -1
+		},
+	}, []int{ /* Start-of-input transitions */ -1, -1}, []int{ /* End-of-input transitions */ -1, -1}, nil},
+
 	// -[0-9]+
 	{[]bool{false, false, true}, []func(rune) int{ // Transitions
 		func(r rune) int {
@@ -1036,16 +1058,6 @@ var dfas = []dfa{
 			case 48 <= r && r <= 57:
 				return 1
 			}
-			return -1
-		},
-	}, []int{ /* Start-of-input transitions */ -1, -1}, []int{ /* End-of-input transitions */ -1, -1}, nil},
-
-	// .
-	{[]bool{false, true}, []func(rune) int{ // Transitions
-		func(r rune) int {
-			return 1
-		},
-		func(r rune) int {
 			return -1
 		},
 	}, []int{ /* Start-of-input transitions */ -1, -1}, []int{ /* End-of-input transitions */ -1, -1}, nil},
@@ -1154,8 +1166,7 @@ OUTER0:
 			}
 		case 10:
 			{
-				lval.n, _ = strconv.Atoi(yylex.Text())
-				return NUM
+				return EOF
 			}
 		case 11:
 			{
@@ -1164,6 +1175,8 @@ OUTER0:
 			}
 		case 12:
 			{
+				lval.n, _ = strconv.Atoi(yylex.Text())
+				return NUM
 			}
 		default:
 			break OUTER0
@@ -1174,7 +1187,11 @@ OUTER0:
 
 	return 0
 }
-func main() {
-	test := "beq r0, r0, -2"
-	yyParse(NewLexer(test))
+func Parse_code(r io.Reader)  {
+	fmt.Println("Aqui-------------------------------\n\n")
+
+	yyParse(NewLexer(r))
+
+	fmt.Println("Aqui2-------------------------------\n\n")
+
 }

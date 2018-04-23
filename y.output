@@ -37,9 +37,9 @@ state 3
 
 
 state 4
-	line:  instruction.'\n' 
+	line:  instruction.EOF 
 
-	'\n'  shift 11
+	EOF  shift 11
 	.  error
 
 
@@ -85,7 +85,7 @@ state 10
 
 
 state 11
-	line:  instruction '\n'.    (4)
+	line:  instruction EOF.    (4)
 
 	.  reduce 4 (src line 22)
 
@@ -274,7 +274,7 @@ state 38
 	.  reduce 8 (src line 28)
 
 
-14 terminals, 4 nonterminals
+15 terminals, 4 nonterminals
 11 grammar rules, 39/2000 states
 0 shift/reduce, 0 reduce/reduce conflicts reported
 53 working sets used
@@ -285,4 +285,4 @@ memory: parser 2/30000
 0 entries saved by goto default
 Optimizer space used: output 38/30000
 38 table entries, 0 zero
-maximum spread: 14, maximum offset: 14
+maximum spread: 15, maximum offset: 14

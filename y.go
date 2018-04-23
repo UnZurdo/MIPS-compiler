@@ -1,9 +1,9 @@
-//line rp.y:2
+//line parser.y:2
 package main
 
 import __yyfmt__ "fmt"
 
-//line rp.y:2
+//line parser.y:2
 import (
 	"errors"
 	"fmt"
@@ -11,7 +11,7 @@ import (
 	"strings"
 )
 
-//line rp.y:11
+//line parser.y:11
 type yySymType struct {
 	yys int
 	n   int
@@ -27,6 +27,7 @@ const ADDFP = 57352
 const COMA = 57353
 const AC = 57354
 const CC = 57355
+const EOF = 57356
 
 var yyToknames = [...]string{
 	"$end",
@@ -42,6 +43,7 @@ var yyToknames = [...]string{
 	"COMA",
 	"AC",
 	"CC",
+	"EOF",
 	"'\\n'",
 }
 var yyStatenames = [...]string{}
@@ -50,7 +52,7 @@ const yyEofCode = 1
 const yyErrCode = 2
 const yyInitialStackSize = 16
 
-//line rp.y:33
+//line parser.y:33
 
 func add_to_bin(op, r0, r1, r2 int) (error, string) {
 
@@ -97,6 +99,13 @@ func add_to_bin(op, r0, r1, r2 int) (error, string) {
 	fmt.Println(bin)
 
 	return nil, bin
+}
+
+func nop_to_bin() (error, string) {
+	bin := strings.Repeat("0", 32)
+	fmt.Println(bin)
+	return nil, bin
+
 }
 
 func LW_SW_to_bin(op, r0, r1, r2 int) (error, string) {
@@ -204,8 +213,8 @@ const yyLast = 38
 
 var yyAct = [...]int{
 
-	5, 8, 7, 9, 10, 6, 11, 38, 30, 3,
-	37, 29, 31, 28, 27, 21, 20, 19, 18, 17,
+	5, 8, 7, 9, 10, 6, 11, 38, 31, 37,
+	3, 30, 29, 28, 27, 21, 20, 19, 18, 17,
 	36, 35, 34, 33, 32, 26, 25, 24, 23, 22,
 	16, 15, 14, 13, 12, 4, 2, 1,
 }
@@ -213,8 +222,8 @@ var yyPact = [...]int{
 
 	-1000, -5, -1000, -1000, -8, 30, 29, 28, 27, 26,
 	-1000, -1000, 8, 7, 6, 5, 4, 25, 24, 23,
-	22, 21, 3, 2, -1, -4, 1, 20, 19, 18,
-	17, 16, -1000, -1000, -3, -6, -1000, -1000, -1000,
+	22, 21, 3, 2, 0, -1, -3, 20, 19, 18,
+	17, 16, -1000, -1000, -4, -6, -1000, -1000, -1000,
 }
 var yyPgo = [...]int{
 
@@ -232,7 +241,7 @@ var yyR2 = [...]int{
 }
 var yyChk = [...]int{
 
-	-1000, -1, -2, 14, -3, 5, 10, 7, 6, 8,
+	-1000, -1, -2, 15, -3, 5, 10, 7, 6, 8,
 	9, 14, 4, 4, 4, 4, 4, 11, 11, 11,
 	11, 11, 4, 4, 4, 4, 4, 11, 11, 12,
 	12, 11, 4, 4, 4, 4, 4, 13, 13,
@@ -247,12 +256,12 @@ var yyDef = [...]int{
 var yyTok1 = [...]int{
 
 	1, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-	14,
+	15,
 }
 var yyTok2 = [...]int{
 
 	2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
-	12, 13,
+	12, 13, 14,
 }
 var yyTok3 = [...]int{
 	0,
@@ -597,38 +606,39 @@ yydefault:
 
 	case 5:
 		yyDollar = yyS[yypt-6 : yypt+1]
-		//line rp.y:25
+		//line parser.y:25
 		{
-			fmt.Println(yyDollar[2].n, yyDollar[4].n, yyDollar[6].n)
 			add_to_bin(0, yyDollar[2].n, yyDollar[4].n, yyDollar[6].n)
 		}
 	case 6:
 		yyDollar = yyS[yypt-6 : yypt+1]
-		//line rp.y:26
+		//line parser.y:26
 		{
-			fmt.Println(yyDollar[2].n, yyDollar[4].n, yyDollar[6].n)
 			add_to_bin(1, yyDollar[2].n, yyDollar[4].n, yyDollar[6].n)
 		}
 	case 7:
 		yyDollar = yyS[yypt-7 : yypt+1]
-		//line rp.y:27
+		//line parser.y:27
 		{
-			fmt.Println(yyDollar[2].n, yyDollar[4].n, yyDollar[6].n)
 			LW_SW_to_bin(0, yyDollar[2].n, yyDollar[4].n, yyDollar[6].n)
 		}
 	case 8:
 		yyDollar = yyS[yypt-7 : yypt+1]
-		//line rp.y:28
+		//line parser.y:28
 		{
-			fmt.Println(yyDollar[2].n, yyDollar[4].n, yyDollar[6].n)
 			LW_SW_to_bin(1, yyDollar[2].n, yyDollar[4].n, yyDollar[6].n)
 		}
 	case 9:
 		yyDollar = yyS[yypt-6 : yypt+1]
-		//line rp.y:29
+		//line parser.y:29
 		{
-			fmt.Println(yyDollar[2].n, yyDollar[4].n, yyDollar[6].n)
 			beq_to_bin(yyDollar[2].n, yyDollar[4].n, yyDollar[6].n)
+		}
+	case 10:
+		yyDollar = yyS[yypt-1 : yypt+1]
+		//line parser.y:30
+		{
+			nop_to_bin()
 		}
 	}
 	goto yystack /* stack new state and value */

@@ -1,2 +1,2 @@
-beq r0, r0, -2
+beq r0, r0, 2
 lw r1, 4[r3]
