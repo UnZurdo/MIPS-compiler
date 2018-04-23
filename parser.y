@@ -24,8 +24,8 @@ line:     '\n'
 
 instruction: ADD NUM COMA NUM COMA NUM  { add_to_bin(0, $2.n,$4.n,$6.n); }
 | ADDFP NUM COMA NUM COMA NUM  { add_to_bin(1, $2.n,$4.n,$6.n); }
-| SW NUM COMA NUM AC NUM CC  { LW_SW_to_bin(0, $2.n,$4.n,$6.n); }
-| LW NUM COMA NUM AC NUM CC  { LW_SW_to_bin(1, $2.n,$4.n,$6.n); }
+| SW NUM COMA NUM AC NUM CC  { LW_SW_to_bin(1, $2.n,$4.n,$6.n); }
+| LW NUM COMA NUM AC NUM CC  { LW_SW_to_bin(0, $2.n,$4.n,$6.n); }
 | BEQ NUM COMA NUM COMA NUM { beq_to_bin($2.n,$4.n,$6.n); }
 | NOP { nop_to_bin(); }
 ;
