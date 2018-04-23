@@ -73,7 +73,7 @@ sr3 = cero + sr3
 }
 
 shamt := "00000000000"
-bin = bin + sr1 + sr2 + sr3 + shamt
+bin = bin + sr3 + sr2 + sr1 + shamt
 
 fmt.Println(bin)
 
