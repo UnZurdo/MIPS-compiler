@@ -11,6 +11,7 @@ import (
 	"regexp"
 	"strconv"
 	"os"
+	"bufio"
 )
 
 type FormSubmission struct {
@@ -73,6 +74,7 @@ func request(w http.ResponseWriter, r *http.Request) {
 
 
 		now := time.Now();
+		reader := bufio.NewReader(os.Stdin)
 
 		err, hexa_code := parse_code(parsed)
 		var estado string
@@ -176,6 +178,7 @@ func parse_code(code[] string) (error, []string) {
 	}
 	return nil, instr_hexa
 }
+
 
 
 func main() {

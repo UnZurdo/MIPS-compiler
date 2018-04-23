@@ -1,0 +1,288 @@
+
+state 0
+	$accept: .input $end 
+	input: .    (1)
+
+	.  reduce 1 (src line 17)
+
+	input  goto 1
+
+state 1
+	$accept:  input.$end 
+	input:  input.line 
+
+	$end  accept
+	ADD  shift 5
+	LW  shift 8
+	SW  shift 7
+	BEQ  shift 9
+	NOP  shift 10
+	ADDFP  shift 6
+	'\n'  shift 3
+	.  error
+
+	line  goto 2
+	instruction  goto 4
+
+state 2
+	input:  input line.    (2)
+
+	.  reduce 2 (src line 18)
+
+
+state 3
+	line:  '\n'.    (3)
+
+	.  reduce 3 (src line 21)
+
+
+state 4
+	line:  instruction.'\n' 
+
+	'\n'  shift 11
+	.  error
+
+
+state 5
+	instruction:  ADD.NUM COMA NUM COMA NUM 
+
+	NUM  shift 12
+	.  error
+
+
+state 6
+	instruction:  ADDFP.NUM COMA NUM COMA NUM 
+
+	NUM  shift 13
+	.  error
+
+
+state 7
+	instruction:  SW.NUM COMA NUM AC NUM CC 
+
+	NUM  shift 14
+	.  error
+
+
+state 8
+	instruction:  LW.NUM COMA NUM AC NUM CC 
+
+	NUM  shift 15
+	.  error
+
+
+state 9
+	instruction:  BEQ.NUM COMA NUM COMA NUM 
+
+	NUM  shift 16
+	.  error
+
+
+state 10
+	instruction:  NOP.    (10)
+
+	.  reduce 10 (src line 30)
+
+
+state 11
+	line:  instruction '\n'.    (4)
+
+	.  reduce 4 (src line 22)
+
+
+state 12
+	instruction:  ADD NUM.COMA NUM COMA NUM 
+
+	COMA  shift 17
+	.  error
+
+
+state 13
+	instruction:  ADDFP NUM.COMA NUM COMA NUM 
+
+	COMA  shift 18
+	.  error
+
+
+state 14
+	instruction:  SW NUM.COMA NUM AC NUM CC 
+
+	COMA  shift 19
+	.  error
+
+
+state 15
+	instruction:  LW NUM.COMA NUM AC NUM CC 
+
+	COMA  shift 20
+	.  error
+
+
+state 16
+	instruction:  BEQ NUM.COMA NUM COMA NUM 
+
+	COMA  shift 21
+	.  error
+
+
+state 17
+	instruction:  ADD NUM COMA.NUM COMA NUM 
+
+	NUM  shift 22
+	.  error
+
+
+state 18
+	instruction:  ADDFP NUM COMA.NUM COMA NUM 
+
+	NUM  shift 23
+	.  error
+
+
+state 19
+	instruction:  SW NUM COMA.NUM AC NUM CC 
+
+	NUM  shift 24
+	.  error
+
+
+state 20
+	instruction:  LW NUM COMA.NUM AC NUM CC 
+
+	NUM  shift 25
+	.  error
+
+
+state 21
+	instruction:  BEQ NUM COMA.NUM COMA NUM 
+
+	NUM  shift 26
+	.  error
+
+
+state 22
+	instruction:  ADD NUM COMA NUM.COMA NUM 
+
+	COMA  shift 27
+	.  error
+
+
+state 23
+	instruction:  ADDFP NUM COMA NUM.COMA NUM 
+
+	COMA  shift 28
+	.  error
+
+
+state 24
+	instruction:  SW NUM COMA NUM.AC NUM CC 
+
+	AC  shift 29
+	.  error
+
+
+state 25
+	instruction:  LW NUM COMA NUM.AC NUM CC 
+
+	AC  shift 30
+	.  error
+
+
+state 26
+	instruction:  BEQ NUM COMA NUM.COMA NUM 
+
+	COMA  shift 31
+	.  error
+
+
+state 27
+	instruction:  ADD NUM COMA NUM COMA.NUM 
+
+	NUM  shift 32
+	.  error
+
+
+state 28
+	instruction:  ADDFP NUM COMA NUM COMA.NUM 
+
+	NUM  shift 33
+	.  error
+
+
+state 29
+	instruction:  SW NUM COMA NUM AC.NUM CC 
+
+	NUM  shift 34
+	.  error
+
+
+state 30
+	instruction:  LW NUM COMA NUM AC.NUM CC 
+
+	NUM  shift 35
+	.  error
+
+
+state 31
+	instruction:  BEQ NUM COMA NUM COMA.NUM 
+
+	NUM  shift 36
+	.  error
+
+
+state 32
+	instruction:  ADD NUM COMA NUM COMA NUM.    (5)
+
+	.  reduce 5 (src line 25)
+
+
+state 33
+	instruction:  ADDFP NUM COMA NUM COMA NUM.    (6)
+
+	.  reduce 6 (src line 26)
+
+
+state 34
+	instruction:  SW NUM COMA NUM AC NUM.CC 
+
+	CC  shift 37
+	.  error
+
+
+state 35
+	instruction:  LW NUM COMA NUM AC NUM.CC 
+
+	CC  shift 38
+	.  error
+
+
+state 36
+	instruction:  BEQ NUM COMA NUM COMA NUM.    (9)
+
+	.  reduce 9 (src line 29)
+
+
+state 37
+	instruction:  SW NUM COMA NUM AC NUM CC.    (7)
+
+	.  reduce 7 (src line 27)
+
+
+state 38
+	instruction:  LW NUM COMA NUM AC NUM CC.    (8)
+
+	.  reduce 8 (src line 28)
+
+
+14 terminals, 4 nonterminals
+11 grammar rules, 39/2000 states
+0 shift/reduce, 0 reduce/reduce conflicts reported
+53 working sets used
+memory: parser 2/30000
+0 extra closures
+35 shift entries, 1 exceptions
+3 goto entries
+0 entries saved by goto default
+Optimizer space used: output 38/30000
+38 table entries, 0 zero
+maximum spread: 14, maximum offset: 14
