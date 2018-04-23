@@ -8,6 +8,8 @@
 /nop|NOP|Nop/ { return NOP }
 
 /,/ { return COMA }
+/\(/ { return AC }
+/\)/ { return CC }
 /\[/ { return AC }
 /\]/ { return CC }
 
@@ -21,6 +23,6 @@
 //
 package main
 import ("os";"strconv")
-func Parser() {
+func main() {
 yyParse(NewLexer(os.Stdin))
 }
