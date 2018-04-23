@@ -10,42 +10,17 @@
 /,/ { return COMA }
 /\[/ { return AC }
 /\]/ { return CC }
-/\n/ { return EOF }
 
 /-[0-9]+/ { lval.n,_ = strconv.Atoi(yylex.Text()); return NUM }
 /[0-9]+/ { lval.n,_ = strconv.Atoi(yylex.Text()); return NUM }
 
 
+/\n/ { return EOF }
+/./ {  }
+
 //
 package main
-
-import (
-"bufio"
-"io"
-"log"
-"os"
-"strconv"
-"errors"
-)
-
-func Parse_code(r io.Reader) error {
-	in := bufio.NewReader(r)
-	for {
-		if _, err := os.Stdout.WriteString("> "); err != nil {
-			log.Fatalf("WriteString: %s", err)
-			return errors.New("syntax error")
-		}
-		line, err := in.ReadBytes('\n')
-			if err == io.EOF {
-			return nil
-		}
-		if err != nil {
-			log.Fatalf("ReadBytes: %s", err)
-		}
-
-		yyParse(NewLexer(r))
-
-	}
-
-
+import ("os";"strconv")
+func main() {
+yyParse(NewLexer(os.Stdin))
 }

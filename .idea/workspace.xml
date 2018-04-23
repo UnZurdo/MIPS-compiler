@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6ad2b9b-60fc-43fb-911c-5aa7492d8d5b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/hexadecimal.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parser.nex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parser.y" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/file.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lexer.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rp.nex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rp.nn.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rp.y" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/y" beforeDir="false" afterPath="$PROJECT_DIR$/y" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y.go" beforeDir="false" afterPath="$PROJECT_DIR$/y.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y.output" beforeDir="false" afterPath="$PROJECT_DIR$/y.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser.nex" beforeDir="false" afterPath="$PROJECT_DIR$/parser.nex" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,19 +43,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parser.nex" pinned="false" current-in-tab="false">
+      <file leaf-file-name="parser.nex" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parser.nex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="375">
+              <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parser.y" pinned="false" current-in-tab="true">
+      <file leaf-file-name="parser.y" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parser.y">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2640">
+            <state relative-caret-position="1222">
               <caret line="176" column="1" selection-start-line="176" selection-start-column="1" selection-end-line="176" selection-end-column="1" />
             </state>
           </provider>
@@ -158,14 +145,14 @@
         <option value="$PROJECT_DIR$/parser.y.go" />
         <option value="$PROJECT_DIR$/rp.y" />
         <option value="$PROJECT_DIR$/rp.nex" />
-        <option value="$PROJECT_DIR$/parser.y" />
         <option value="$PROJECT_DIR$/lexer.go" />
         <option value="$PROJECT_DIR$/y.go" />
-        <option value="$PROJECT_DIR$/parser.nex" />
         <option value="$PROJECT_DIR$/parser.nn.go" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/hexadecimal.html" />
         <option value="$PROJECT_DIR$/app.go" />
+        <option value="$PROJECT_DIR$/parser.y" />
+        <option value="$PROJECT_DIR$/parser.nex" />
       </list>
     </option>
   </component>
@@ -255,7 +242,7 @@
     <frame x="281" y="24" width="1473" height="1416" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24949014" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24949014" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Database" order="3" />
@@ -473,13 +460,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parser.nex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hexadecimal.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -506,8 +486,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parser.y">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2640">
+        <state relative-caret-position="1222">
           <caret line="176" column="1" selection-start-line="176" selection-start-column="1" selection-end-line="176" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parser.nex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
         </state>
       </provider>
     </entry>
