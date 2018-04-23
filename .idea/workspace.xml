@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6ad2b9b-60fc-43fb-911c-5aa7492d8d5b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/hexadecimal.html" beforeDir="false" afterPath="$PROJECT_DIR$/hexadecimal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser.nex" beforeDir="false" afterPath="$PROJECT_DIR$/parser.nex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser.nn.go" beforeDir="false" afterPath="$PROJECT_DIR$/parser.nn.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/y" beforeDir="false" afterPath="$PROJECT_DIR$/y" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hexadecimal.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="hexadecimal.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hexadecimal.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+            <state relative-caret-position="690">
+              <caret line="46" column="15" selection-start-line="46" selection-start-column="15" selection-end-line="46" selection-end-column="15" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -38,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
+            <state relative-caret-position="877">
+              <caret line="178" column="39" selection-start-line="178" selection-start-column="39" selection-end-line="178" selection-end-column="39" />
               <folding>
                 <element signature="e#14#151#0" expanded="true" />
               </folding>
@@ -53,8 +56,8 @@
       <file leaf-file-name="parser.nex" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parser.nex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+            <state relative-caret-position="105">
+              <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -71,8 +74,8 @@
       <file leaf-file-name="parser.nn.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parser.nn.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-14752">
-              <caret line="138" column="87" selection-start-line="138" selection-start-column="85" selection-end-line="138" selection-end-column="87" />
+            <state relative-caret-position="-14797">
+              <caret line="135" column="87" selection-start-line="135" selection-start-column="87" selection-end-line="135" selection-end-column="87" />
               <folding>
                 <element signature="e#14#110#0" expanded="true" />
               </folding>
@@ -155,11 +158,11 @@
         <option value="$PROJECT_DIR$/lexer.go" />
         <option value="$PROJECT_DIR$/y.go" />
         <option value="$PROJECT_DIR$/parser.nn.go" />
-        <option value="$PROJECT_DIR$/app.go" />
         <option value="$PROJECT_DIR$/parser.y" />
-        <option value="$PROJECT_DIR$/parser.nex" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/hexadecimal.html" />
+        <option value="$PROJECT_DIR$/parser.nex" />
+        <option value="$PROJECT_DIR$/app.go" />
       </list>
     </option>
   </component>
@@ -462,20 +465,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parser.nn.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14752">
-          <caret line="138" column="87" selection-start-line="138" selection-start-column="85" selection-end-line="138" selection-end-column="87" />
+        <state relative-caret-position="-14797">
+          <caret line="135" column="87" selection-start-line="135" selection-start-column="87" selection-end-line="135" selection-end-column="87" />
           <folding>
             <element signature="e#14#110#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
-          <folding>
-            <element signature="e#14#151#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -484,13 +477,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1222">
           <caret line="176" column="1" selection-start-line="176" selection-start-column="1" selection-end-line="176" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parser.nex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -504,12 +490,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/parser.nex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hexadecimal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+        <state relative-caret-position="690">
+          <caret line="46" column="15" selection-start-line="46" selection-start-column="15" selection-end-line="46" selection-end-column="15" />
           <folding>
             <element signature="n#style#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="877">
+          <caret line="178" column="39" selection-start-line="178" selection-start-column="39" selection-end-line="178" selection-end-column="39" />
+          <folding>
+            <element signature="e#14#151#0" expanded="true" />
           </folding>
         </state>
       </provider>

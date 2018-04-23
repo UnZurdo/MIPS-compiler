@@ -1,11 +1,11 @@
 /[ \t]/  { /* Skip blanks and tabs. */ }
 
-/add|ADD/ { return ADD }
-/lw|LW/ { return LW }
-/sw|SW/ { return SW }
-/beq|BEQ/ { return BEQ }
-/addfp|ADDFP/ { return ADDFP }
-/nop|NOP/ { return NOP }
+/add|ADD|Add/ { return ADD }
+/lw|LW|Lw/ { return LW }
+/sw|SW|Sw/ { return SW }
+/beq|BEQ|Beq/ { return BEQ }
+/addfp|ADDFP|Addfp/ { return ADDFP }
+/nop|NOP|Nop/ { return NOP }
 
 /,/ { return COMA }
 /\[/ { return AC }

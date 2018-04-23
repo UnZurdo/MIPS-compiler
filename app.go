@@ -176,7 +176,7 @@ func requestHexa(w http.ResponseWriter, r *http.Request) {
 					ui := uint64(bin)
 					fmt.Println("uint",ui)
 
-					hexa_code := strconv.FormatUint(ui, 16)
+					hexa_code := "0x"+ strconv.FormatUint(ui, 16)
 					hexa_code_array = append(hexa_code_array, hexa_code)
 					fmt.Println("hexa",hexa_code)
 				}
