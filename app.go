@@ -118,6 +118,28 @@ func request(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			log.Print("template executing error: ", err)
 		}
+	} else {
+		code := r.Form["code"]
+		fmt.Println("code:", code)
+		justString := strings.Join(code," ")
+		now := time.Now();
+
+		response := PageStatus{
+			State: "ok",
+			Date: now.Format("02-01-2006"),
+			Time: now.Format("15:04:05"),
+			Type: "Hexadecimal",
+			Code: justString,
+
+		}
+		t, err := template.ParseFiles("hexadecimal.html")
+		if err != nil {
+			log.Print("template parsing error: ", err)
+		}
+		err = t.Execute(w, response)
+		if err != nil {
+			log.Print("template executing error: ", err)
+		}
 	}
 }
 
@@ -241,6 +263,9 @@ func requestHexa(w http.ResponseWriter, r *http.Request) {
 			log.Print("template executing error: ", err)
 		}
 	} else {
+		code := r.Form["code"]
+		fmt.Println("code:", code)
+		justString := strings.Join(code," ")
 		now := time.Now();
 
 		response := PageStatus{
@@ -248,6 +273,8 @@ func requestHexa(w http.ResponseWriter, r *http.Request) {
 			Date: now.Format("02-01-2006"),
 			Time: now.Format("15:04:05"),
 			Type: "Hexadecimal",
+			Code: justString,
+
 		}
 		t, err := template.ParseFiles("hexadecimal.html")
 		if err != nil {
@@ -261,9 +288,195 @@ func requestHexa(w http.ResponseWriter, r *http.Request) {
 }
 
 
+func requestDownload(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("method:", r.Method) //get request method
+	if r.Method == "POST" {
+		r.ParseForm()
+		// logic part of log in
+		code := r.Form["code"]
+		var estado string
+		now := time.Now();
+		if len(code) == 0 {
+			estado = "Syntax error"
+		} else {
+			estado = "OK"
+		}
+		fmt.Println("code:", code)
+		justString := strings.Join(code," ")
+		//fmt.Println("justcode:", justString)
+
+		parsed := strings.Split(justString, "\n")
+		var new []string
+		for index, elem := range parsed {
+			fmt.Println(index, elem)
+			new = append(new, elem[2:])
+		}
+
+		j:= 1
+		var hexa_code = ""
+		for i:= 0; i < len(parsed) - 1; i++ {
+			parsed[i] = strings.TrimSuffix(parsed[i], "\n")
+			parsed[i] = strings.TrimSpace(parsed[i])
+			if i != len(parsed) {
+				parsed[i] = `X"` + parsed[i] +`", `
+				hexa_code += parsed[i]
+			}
+			if j == 8 {
+				j= 0
+				hexa_code += "\n"
+			}
+			j+=1
+		}
+
+		for i:= 0; i <= 16*8 - len(parsed); i++ {
+			if i < 16*8 - len(parsed) {
+				hexa_code += `X"00000000", `
+			} else{
+				hexa_code += `X"00000000"`
+			}
+
+			if j == 8 {
+				j = 0
+				hexa_code += "\n"
+			}
+			j+=1
+		}
+
+
+
+		////////////////////////////
+
+		createFile()
+		writeFile(hexa_code)
+
+		//Check if file exists and open
+		Openfile, err := os.Open("memoriaRAM_I_ejemplo.vhd")
+		defer Openfile.Close() //Close after function return
+		if err != nil {
+			//File not found, send 404
+			http.Error(w, "File not found.", 404)
+			return
+		}
+
+		//File is found, create and send the correct headers
+
+		//Get the Content-Type of the file
+		//Create a buffer to store the header of the file in
+		FileHeader := make([]byte, 512)
+		//Copy the headers into the FileHeader buffer
+		Openfile.Read(FileHeader)
+		//Get content type of file
+		FileContentType := http.DetectContentType(FileHeader)
+
+		//Get the file size
+		FileStat, _ := Openfile.Stat()                     //Get info from file
+		FileSize := strconv.FormatInt(FileStat.Size(), 10) //Get file size as a string
+
+		//Send the headers
+		w.Header().Set("Content-Disposition", "attachment; filename="+"memoriaRAM_I_ejemplo.vhd")
+		w.Header().Set("Content-Type", FileContentType)
+		w.Header().Set("Content-Length", FileSize)
+
+		//Send the file
+		//We read 512 bytes from the file already so we reset the offset back to 0
+		Openfile.Seek(0, 0)
+		io.Copy(w, Openfile) //'Copy' the file to the client
+
+		//deleteFile()
+
+
+		response := PageStatus{
+			State: estado,
+			Date: now.Format("02-01-2006"),
+			Time: now.Format("15:04:05"),
+			Code: justString,
+			Hexadecimal: hexa_code,
+			Type: "Hexadecimal",
+		}
+		t, err := template.ParseFiles("hexadecimal.html")
+		if err != nil {
+			log.Print("template parsing error: ", err)
+		}
+		err = t.Execute(w, response)
+		if err != nil {
+			log.Print("template executing error: ", err)
+		}
+	} else {
+		code := r.Form["code"]
+		fmt.Println("code:", code)
+		justString := strings.Join(code," ")
+		now := time.Now();
+
+		response := PageStatus{
+			State: "ok",
+			Date: now.Format("02-01-2006"),
+			Time: now.Format("15:04:05"),
+			Type: "Hexadecimal",
+			Code: justString,
+
+		}
+		t, err := template.ParseFiles("hexadecimal.html")
+		if err != nil {
+			log.Print("template parsing error: ", err)
+		}
+		err = t.Execute(w, response)
+		if err != nil {
+			log.Print("template executing error: ", err)
+		}
+	}
+}
+
+
+func createFile() {
+
+	var file, err = os.Create("./memoriaRAM_I_ejemplo.vhd")
+	if isError(err) { return }
+	defer file.Close()
+
+
+	fmt.Println("==> done creating file")
+}
+
+func writeFile(info string) {
+	// open file using READ & WRITE permission
+	var file, err = os.OpenFile("./memoriaRAM_I_ejemplo.vhd", os.O_RDWR, 0644)
+	if isError(err) { return }
+	defer file.Close()
+
+	// write some text line-by-line to file
+
+	content := Header() + info + Footer()
+	_, err = file.WriteString(content)
+	if isError(err) { fmt.Println("error escritura"); return}
+
+	// save changes
+	err = file.Sync()
+	if isError(err) { return }
+	fmt.Println(info)
+	fmt.Println("==> done writing to file")
+}
+
+
+func deleteFile() {
+	// delete file
+	var err = os.Remove("./memoriaRAM_I_ejemplo.vhd")
+	if isError(err) { return }
+
+	fmt.Println("==> done deleting file")
+}
+
+func isError(err error) bool {
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
+	return (err != nil)
+}
+
 func main() {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/request", request)
+	http.HandleFunc("/request/download", requestDownload)
 	http.HandleFunc("/request/hexa", requestHexa)
 
 	log.Fatal(http.ListenAndServe(getPort(), nil))

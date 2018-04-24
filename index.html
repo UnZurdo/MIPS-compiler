@@ -41,12 +41,12 @@
         <form class="input" style="width: 70%; margin-right: 5%;" method="post" action="/request" >
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Input</label>
-                <textarea name="code" class="form-control" id="input" rows="20"></textarea>
+                <textarea name="code" class="form-control" id="input" rows="20">{{.Code}}</textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
-        <form class="output" style="width: 70%;">
+        <form class="output" style="width: 70%;" method="post" action="/request/download">
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Output</label>
                 <textarea class="form-control" id="output" rows="20">{{.Hexadecimal}}
