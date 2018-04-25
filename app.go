@@ -46,7 +46,7 @@ func index(w http.ResponseWriter, r *http.Request){
 	now := time.Now();
 
 	response := PageStatus{
-		State: "ok",
+		State: "OK",
 		Date: now.Format("02-01-2006"),
 		//Time: now.Format("15:04:05"),
 		Type: "Binary",
@@ -125,7 +125,7 @@ func request(w http.ResponseWriter, r *http.Request) {
 		now := time.Now();
 
 		response := PageStatus{
-			State: "ok",
+			State: "OK",
 			Date: now.Format("02-01-2006"),
 			Time: now.Format("15:04:05"),
 			Type: "Hexadecimal",
@@ -269,7 +269,7 @@ func requestHexa(w http.ResponseWriter, r *http.Request) {
 		now := time.Now();
 
 		response := PageStatus{
-			State: "ok",
+			State: "OK",
 			Date: now.Format("02-01-2006"),
 			Time: now.Format("15:04:05"),
 			Type: "Hexadecimal",
@@ -317,6 +317,7 @@ func requestDownload(w http.ResponseWriter, r *http.Request) {
 		for i:= 0; i < len(parsed) - 1; i++ {
 			parsed[i] = strings.TrimSuffix(parsed[i], "\n")
 			parsed[i] = strings.TrimSpace(parsed[i])
+			parsed[i] = parsed[i][2:]
 			if i != len(parsed) {
 				parsed[i] = `X"` + parsed[i] +`", `
 				hexa_code += parsed[i]
@@ -408,7 +409,7 @@ func requestDownload(w http.ResponseWriter, r *http.Request) {
 		now := time.Now();
 
 		response := PageStatus{
-			State: "ok",
+			State: "OK",
 			Date: now.Format("02-01-2006"),
 			Time: now.Format("15:04:05"),
 			Type: "Hexadecimal",
