@@ -1,8 +1,8 @@
 package main
 
 var header = `------------------------------------------------------------------------------------ Company:
--- Engineer:
---
+-- Engineer: Alberto García
+--  
 -- Create Date:    10:38:16 04/08/2014
 -- Design Name:
 -- Module Name:    memoriaRAM_I - Behavioral
